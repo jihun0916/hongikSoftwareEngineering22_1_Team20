@@ -1,0 +1,6 @@
+[Jihun Shin] Mon May 2 01:39:25 2022 +0900 Create 소프트웨어 공학 팀20.pdf 70b6747
+[Jihun Shin] Sun May 1 21:11:17 2022 +0900 diagram 수정 ca20a42
+[jihun0916] Sun May 1 14:11:40 2022 +0900 Create 1차 UI Screen design.png 1648030
+[Jihun Shin] Fri Apr 29 18:46:45 2022 +0900 4_29 1차 초안 7ef154d
+[seokan-jeong] Tue Apr 26 22:30:37 2022 +0900 [22.4.26] 업무분담 a74f479
+[jihun0916] Thu Apr 21 17:51:43 2022 +0900 Initial commit 14d188b
