@@ -1,0 +1,12 @@
+1.1. SignUp
+lee 123456 mbc pwd1
+2.1. LogIn
+mbc pwd1
+2.2. LogOut
+
+1.1. SignUp
+park 987654 obs pwd2
+2.1. LogIn
+obs pwd2
+2.2. LogOut
+

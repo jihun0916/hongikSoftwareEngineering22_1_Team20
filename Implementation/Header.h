@@ -4,74 +4,74 @@
 #define MAX_MEMBER_COUNT 100
 using namespace std;
 
-class Member{
+class Member {
 private:
-  string name;
-  string residentNumber;
-  string id;
-  string password;
+	string name;
+	string residentNumber;
+	string id;
+	string password;
 
 public:
-  Member(string id, string password, string name, string residentNumber);
-  string getId();
+	Member(string id, string password, string name, string residentNumber);
+	string getId();
 };
 
-class MemberList{
+class MemberList {
 private:
-  Member* memberList[MAX_MEMBER_COUNT];
-  int memberCount;
+	Member* memberList[MAX_MEMBER_COUNT];
+	int memberCount;
 public:
-  MemberList();
-  void createMember(string id, string password, string name, string residentNumber);
-  void deleteMember(string id);
-  Member logInMember(string id, string password);
-  Member logOutMember();
+	MemberList();
+	void createMember(string id, string password, string name, string residentNumber);
+	void deleteMember(string id);
+	Member logInMember(string id, string password);
+	Member logOutMember();
 };
 
-class SignUp{
+class SignUp {
 public:
-  SignUp();
-  void createMember(MemberList* memberList, string id, string password, string name, string residentNumber);
+	SignUp();
+	void createMember(MemberList* memberList, string id, string password, string name, string residentNumber);
 };
 
-class SignUpUI{
+class SignUpUI {
 public:
-  void startInterface();
-  void initSignUp(SignUp*);
+	void startInterface();
+	void initSignUp(SignUp*);
 };
 
-class Secession{
+class Secession {
 public:
-  Secession();
-  void deleteMember(MemberList* memberList, string id);
+	Secession();
+	void deleteMember(MemberList* memberList, string id);
 };
 
-class SecessionUI{
+class SecessionUI {
 public:
-  void startInterface();
-  void initSecession(Secession*);
+	void startInterface();
+	void initSecession(Secession*);
 };
 
-class LogIn{
+class LogIn {
 public:
-  LogIn();
-  Member logInMember(MemberList* memberList, string id, string password);
+	LogIn();
+	Member logInMember(MemberList* memberList, string id, string password);
 };
 
-class LogInUI{
+class LogInUI {
 public:
-  void startInterface();
-  void initLogIn(LogIn*);
+	void startInterface();
+	void initLogIn(LogIn*);
 };
 
-class LogOut{
+class LogOut {
 public:
-  LogOut();
-  Member logOutMember(MemberList* memberList);
+	LogOut();
+	Member logOutMember(MemberList* memberList);
 };
 
-class LogOutUI{
+class LogOutUI {
 public:
-  void startInterface();
-  void initLogOut(LogOut*);
+	void startInterface();
+	void initLogOut(LogOut*);
 };
