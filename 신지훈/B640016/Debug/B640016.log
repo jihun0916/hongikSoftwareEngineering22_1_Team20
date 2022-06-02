@@ -1,0 +1,17 @@
+﻿  B640016.cpp
+  Item.cpp
+  ItemInfoSearch.cpp
+  ItemInfoSearchUI.cpp
+  ItemList.cpp
+  ItemRegistration.cpp
+  ItemRegistrationUI.cpp
+  Main.cpp
+C:\Users\user\source\repos\B640016\Main.cpp(115,10): warning C4101: 'key' :참조되지 않은 지역 변수입니다.
+  PurchaseItem.cpp
+  PurchaseItemUI.cpp
+  ShowMyitems.cpp
+  ShowMyitemsUI.cpp
+  ShowSoldItems.cpp
+  ShowSoldItemsUI.cpp
+  코드를 생성하고 있습니다...
+  B640016.vcxproj -> C:\Users\user\source\repos\B640016\Debug\B640016.exe
