@@ -10,13 +10,17 @@
 
 using namespace std;
 
+//Class: Main
+//Description: 모든 시퀀스를 관리하고 Input.txt의 처음 2글자로 올바른 컨트롤 클래스와 매칭시킨다.
+//Created: 2022/06/02 09:00 PM (updated)
+//Author: B640016 신지훈
+//mail: vv1663@naver.com
+
 class Main {
 public:
 	void Run();
 private:
-	ItemList purchaseList, saleList;
-	map<string, ItemList> base;
-	//FILE* in_fp = fopen(INPUT_FILE_NAME, "r+");
-	//FILE* out_fp = fopen(OUTPUT_FILE_NAME, "w+");
-
+	ItemList purchaseList; //사용자가 구매할 수 있는 상품목록 전체 DB와 비슷한 역할
+	map<string, ItemList> saleList; //사용자가 판매하는 상품목록 <사용자 ID, 리스트>
+	map<string, ItemList> base; //사용자가 구매한 상품 목폭 <사용자 ID, 리스트>
 };

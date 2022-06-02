@@ -10,13 +10,20 @@
 #include <fstream>
 using namespace std;
 
-bool IsSelected;
-string currentID;
-string currentkey;
-void Main::Run() 
+bool IsSelected; //4.2 구매의 경우 4.1 검색과정이 선행되고 상품이 선택되어야 실행되므로 상태확인을 위한 전역변수
+string currentID = "test1"; //현재 사용하는 사용자의 아이디
+string currentkey; //가장 최근에 검색된 검색어
+
+//Function:Run
+//Description: Make의 유일한 함수, 프로그램을 동작시킨다
+//Parameter: X
+//Return Value: X
+//Created:2022/06/02 09:00 PM (updated)
+//Author: B640016 신지훈
+
+void Main::Run()
 {
-	/*FILE* in_fp = fopen(INPUT_FILE_NAME, "r+");
-	FILE* out_fp = fopen(OUTPUT_FILE_NAME, "w+");*/
+
 	ifstream fin(INPUT_FILE_NAME);
 
 
@@ -69,40 +76,39 @@ void Main::Run()
 		{
 			switch (menu_level_2)
 			{
-				case 1:
-				{
-					//Account?
-					string ID = "";
+			case 1:
+			{
+				//Account?
+				string ID = currentID;
 
-					char name[MAX_STRING], company[MAX_STRING], price[MAX_STRING],quantity[MAX_STRING];
-					//fscanf(in_fp, "%s %s %s %s", name, company, price, quantity);
+				char name[MAX_STRING], company[MAX_STRING], price[MAX_STRING], quantity[MAX_STRING];
+				//필요한 인자순서대로 변수선언
 
-					fin >> name;
-					fin >> company;
-					fin >> price;
-					fin >> quantity;
-					int _price, _quantity;
-					sscanf_s(price,"%d",&_price);
-					sscanf_s(quantity, "%d", &_quantity);
-					//cout << name << company << price << quantity;
+				fin >> name; //입력을 변수에 대입
+				fin >> company;
+				fin >> price;
+				fin >> quantity;
+				int _price, _quantity; //정수형 자료들은 변환
+				sscanf_s(price, "%d", &_price);
+				sscanf_s(quantity, "%d", &_quantity);
 
-					ItemRegistration Registration(name,company, _price, _quantity,this->saleList,this->purchaseList,ID);
-					//3.1 판매의류등록
-					break;
-				}
-				case 2:
-				{
-					//3.2 등록 상품 조회
-					ShowMyitems ShowItems(this->saleList);
-					
-					break;
-				}
-				case 3:
-				{
-					ShowSoldItems ShowsoldItem(this->saleList);
-					//3.3 판매 완료 상품 조회
-					break;
-				}
+				ItemRegistration Registration(name, company, _price, _quantity, this->saleList[ID], this->purchaseList, ID); //의류등록 컨트롤 클래스에게 전달
+				//3.1 판매의류등록
+				break;
+			}
+			case 2:
+			{
+				//3.2 등록 상품 조회
+				ShowMyitems ShowItems(this->saleList[currentID]);
+
+				break;
+			}
+			case 3:
+			{
+				ShowSoldItems ShowsoldItem(this->saleList[currentID]);
+				//3.3 판매 완료 상품 조회
+				break;
+			}
 			}
 			break;
 		}
@@ -112,7 +118,6 @@ void Main::Run()
 			{
 			case 1:
 			{
-				char key[MAX_STRING];
 				fin >> currentkey;
 				ItemInfoSearch SearchItem(currentkey, this->purchaseList);
 				IsSelected = SearchItem.IsExist;
@@ -136,7 +141,7 @@ void Main::Run()
 			}
 			case 4:
 			{
-				
+
 				//4.4 상품 구매만족도 평가
 				break;
 			}
@@ -161,7 +166,7 @@ void Main::Run()
 			{
 			case 1:
 			{
-			
+
 				is_program_exit = 1;
 				break;
 			}
