@@ -7,6 +7,6 @@ SignUp::SignUp(){
   signUpUI.initSignUp(this);
 }
 
-void SignUp::createMember(MemberList* memberList, Member member){
-  memberList->createMember(member);
+void SignUp::createMember(MemberList* memberList, string id, string password, string name, string residentNumber){
+  memberList->createMember(id, password, name, residentNumber);
 }

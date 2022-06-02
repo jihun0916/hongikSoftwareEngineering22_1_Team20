@@ -18,12 +18,12 @@ public:
 
 class MemberList{
 private:
-  Member memberList[MAX_MEMBER_COUNT];
+  Member* memberList[MAX_MEMBER_COUNT];
   int memberCount;
 public:
   MemberList();
-  void createMember(Member member);
-  void deleteMember(Member member);
+  void createMember(string id, string password, string name, string residentNumber);
+  void deleteMember(string id);
   Member logInMember(string id, string password);
   Member logOutMember();
 };
@@ -31,7 +31,7 @@ public:
 class SignUp{
 public:
   SignUp();
-  void createMember(MemberList* memberList, Member member);
+  void createMember(MemberList* memberList, string id, string password, string name, string residentNumber);
 };
 
 class SignUpUI{
@@ -43,7 +43,7 @@ public:
 class Secession{
 public:
   Secession();
-  void deleteMember(MemberList* memberList, Member member);
+  void deleteMember(MemberList* memberList, string id);
 };
 
 class SecessionUI{
