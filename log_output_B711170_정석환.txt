@@ -1,0 +1,12 @@
+[seokan-jeong] Wed May 18 21:22:56 2022 +0900 [Add] Analysis Class Diagram 975b590
+[seokan-jeong] Wed May 18 20:41:51 2022 +0900 [Add] Communication Diagram - LogOut 4c89115
+[seokan-jeong] Wed May 18 20:41:14 2022 +0900 [Add] Communication Diagram - LogIn 31c9fe6
+[seokan-jeong] Wed May 18 20:40:43 2022 +0900 [Add] Communication Diagram - Secession cf9a582
+[seokan-jeong] Wed May 18 20:40:13 2022 +0900 [Add] Communication Diagram - Sign Up 53a0edd
+[seokan-jeong] Wed May 18 20:39:02 2022 +0900 [Add] Use Case Diagram 수정본 f2b650d
+[seokan-jeong] Wed May 18 14:43:07 2022 +0900 [Fix] Requirement List & Use case Diagram 수정 b4f6901
+[seokan-jeong] Sun May 1 22:15:05 2022 +0900 [22.5.1] UI Screen Design 659978d
+[seokan-jeong] Sun May 1 21:48:52 2022 +0900 [22.5.1] 프로그램 자동 종료 extend -> include 수정 d029781
+[seokan-jeong] Fri Apr 29 15:45:43 2022 +0900 [22.4.29] 할당받은 업무requirement list, actor description, use case diagram 작성 e68227e
+[seokan-jeong] Tue Apr 26 22:30:37 2022 +0900 [22.4.26] 업무분담 a74f479
+[jihun0916] Thu Apr 21 17:51:43 2022 +0900 Initial commit 14d188b
