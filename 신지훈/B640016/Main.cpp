@@ -19,7 +19,7 @@ MemberList currentMemberList;
 Member currentMember("", "", "", "");
 
 void SignUpUI::startInterface() {
-	cout << "Sign Up" << endl;
+	cout << "Sign Up1" << endl;
 }
 
 void program_exit()
