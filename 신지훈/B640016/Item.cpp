@@ -28,15 +28,15 @@ void Item::PrintElement(int menu1, int menu2) {
 		fout << name << " " << company << " " << price << " " << sellCount << " " << satisfaction << endl;
 	}
 	else if (menu1 == 4 && menu2 == 1) {//4.1 상품 정보 검색 시 사용되는 부분
-		fout << menu1; fout << " "; fout << menu2; fout << " ";
+		fout << menu1; fout << "."; fout << menu2; fout << "." <<" 상품정보검색";
 		fout << ID << " " << name << " " << company << " " << price << " " << quantity << " " << satisfaction << endl;
 	}
 	else if (menu1 == 4 && menu2 == 2) {//4.2 상품 구매 시 사용되는 부분
-		fout << menu1; fout << " "; fout << menu2; fout << " ";
+		fout << menu1; fout << "."; fout << menu2; fout << "."<<" 상품 구매";
 		fout << ID <<" "<<name << endl;
 	}
 	else { //기본 출력 값
-		fout << menu1; fout << " "; fout << menu2; fout << " ";
+		fout << menu1; fout << "."; fout << menu2; fout << ".";
 		fout << name << " " << company << " " << price << " " << quantity << endl;
 	}
 	//cout << name << " " << company << " " << price << " " << quantity;

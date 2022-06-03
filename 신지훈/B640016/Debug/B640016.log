@@ -1,14 +1,2 @@
-﻿  B640016.cpp
-  ItemInfoSearch.cpp
-  ItemInfoSearchUI.cpp
-  ItemRegistration.cpp
-  ItemRegistrationUI.cpp
-  Main.cpp
-  PurchaseItem.cpp
-  PurchaseItemUI.cpp
-  ShowMyitems.cpp
-  ShowMyitemsUI.cpp
-  ShowSoldItems.cpp
-  ShowSoldItemsUI.cpp
-  코드를 생성하고 있습니다...
+﻿  Main.cpp
   B640016.vcxproj -> C:\Users\user\source\repos\B640016\Debug\B640016.exe

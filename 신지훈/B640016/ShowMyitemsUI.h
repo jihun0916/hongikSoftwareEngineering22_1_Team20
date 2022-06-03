@@ -16,7 +16,6 @@ class ShowMyitemsUI
 	}
 private:
 	ItemList it;
-	char* name, * company;
-	int price, quantity;
+
 };
 

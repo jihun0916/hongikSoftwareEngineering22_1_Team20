@@ -8,11 +8,81 @@
 #include "ShowSoldItems.h"
 #include <iostream>
 #include <fstream>
+#include "Header.h"
+
 using namespace std;
 
+ifstream in_fp;
+ofstream out_fp;
+
+MemberList currentMemberList;
+Member currentMember("", "", "", "");
+
+void SignUpUI::startInterface() {
+	cout << "Sign Up" << endl;
+}
+
+void program_exit()
+{
+	out_fp.close();
+}
+
+void SignUpUI::initSignUp(SignUp* signUp) {
+	// 입력 형식 : 이름, 주민번호, ID, Password를 파일로부터 읽음
+	string name, residentNumber, id, password;
+
+	in_fp >> name >> residentNumber >> id >> password;
+	Member member(id, password, name, residentNumber);
+
+	out_fp << " 1.1. 회원가입\n";
+
+	out_fp << "> "<< name << " " << residentNumber << " " << id << " " << password << "\n";
+
+	signUp->createMember(&currentMemberList, id, password, name, residentNumber);
+}
+
+void SecessionUI::startInterface() {
+	cout << "Secession" << endl;
+}
+
+void SecessionUI::initSecession(Secession* secession) {
+	out_fp << "1.2. 회원탈퇴" << endl;
+	out_fp << "> "<< currentMember.getId() << endl;
+
+	secession->deleteMember(&currentMemberList, currentMember.getId());
+}
+
+void LogInUI::startInterface() {
+	cout << "LogIn" << endl;
+}
+
+void LogInUI::initLogIn(LogIn* logIn) {
+	string id, password;
+	in_fp >> id >> password;
+
+	out_fp << "2.1. 로그인\n";
+	out_fp <<"> " << id << " " << password << "\n";
+
+	logIn->logInMember(&currentMemberList, id, password);
+}
+
+void LogOutUI::startInterface() {
+	cout << "로그아웃" << endl;
+}
+
+void LogOutUI::initLogOut(LogOut* logOut) {
+
+	out_fp << "2.2. 로그아웃\n";
+	out_fp << "> "<< currentMember.getId() << endl;
+
+	currentMember = logOut->logOutMember(&currentMemberList);
+}
+
 bool IsSelected; //4.2 구매의 경우 4.1 검색과정이 선행되고 상품이 선택되어야 실행되므로 상태확인을 위한 전역변수
-string currentID = "test1"; //현재 사용하는 사용자의 아이디
+//string currentID = "test1"; //현재 사용하는 사용자의 아이디
 string currentkey; //가장 최근에 검색된 검색어
+
+
 
 //Function:Run
 //Description: Make의 유일한 함수, 프로그램을 동작시킨다
@@ -45,12 +115,13 @@ void Main::Run()
 			{
 				//1.1. 회원가입 메뉴 부분
 				//회원가입 함수
+				SignUp signUp;
 				break;
 			}
 			case 2:
 			{
 				//1.2 회원탈퇴
-
+				Secession secession;
 				break;
 			}
 			}
@@ -63,14 +134,17 @@ void Main::Run()
 			case 1:
 			{
 				//2.1 로그인
+				LogIn logIn;
 				break;
 			}
 			case 2:
 			{
 				//2.2 로그아웃
+				LogOut logOut;
 				break;
 			}
 			}
+			break;
 		}
 		case 3:
 		{
@@ -79,7 +153,7 @@ void Main::Run()
 			case 1:
 			{
 				//Account?
-				string ID = currentID;
+				string ID = currentMember.getId();
 
 				char name[MAX_STRING], company[MAX_STRING], price[MAX_STRING], quantity[MAX_STRING];
 				//필요한 인자순서대로 변수선언
@@ -99,13 +173,13 @@ void Main::Run()
 			case 2:
 			{
 				//3.2 등록 상품 조회
-				ShowMyitems ShowItems(this->saleList[currentID]);
+				ShowMyitems ShowItems(this->saleList[currentMember.getId()]);
 
 				break;
 			}
 			case 3:
 			{
-				ShowSoldItems ShowsoldItem(this->saleList[currentID]);
+				ShowSoldItems ShowsoldItem(this->saleList[currentMember.getId()]);
 				//3.3 판매 완료 상품 조회
 				break;
 			}
@@ -128,9 +202,10 @@ void Main::Run()
 			case 2:
 			{
 				if (IsSelected) {
-					PurchaseItem Purchaseitem(currentID, currentkey, this->purchaseList, this->base);
+					PurchaseItem Purchaseitem(currentMember.getId(), currentkey, this->purchaseList, this->base);
 					currentkey = "";
 				}
+				//4.2 상품 구매
 				//4.2 상품 구매
 				break;
 			}
@@ -166,7 +241,7 @@ void Main::Run()
 			{
 			case 1:
 			{
-
+				program_exit();
 				is_program_exit = 1;
 				break;
 			}
@@ -178,3 +253,4 @@ void Main::Run()
 	}
 	return;
 }
+
